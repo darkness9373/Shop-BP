@@ -1,0 +1,38 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Darkness Shop",
+        "description": "-",
+        "uuid": "31dd997e-7d3f-44bd-bda1-d14d1b752095",
+        "version": [1, 0, 0],
+        "min_engine_version": [
+            1,
+            21,
+            130
+        ]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "cb7a6058-a9a4-494b-86b5-7bc60f4994d3",
+            "version": [1, 0, 0]
+        },
+        {
+            "type": "script",
+            "language": "javascript",
+            "uuid": "48d1e2a0-836f-4172-81ab-12ba9e1e630b",
+            "entry": "scripts/main.js",
+            "version": [1, 0, 0]
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server",
+            "version": "2.3.0"
+        },
+        {
+            "module_name": "@minecraft/server-ui",
+            "version": "2.0.0"
+        }
+    ]
+}
