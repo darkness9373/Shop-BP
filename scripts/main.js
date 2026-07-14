@@ -44,16 +44,14 @@ function normalForm(player) {
 function customForm(player) {
     const form = new DarknessFormData()
     form.title('Custom Button');
-    form.body('100');
-    form.button('Prev');
-    form.button('Next');
-    form.button('Refresh');
-    form.button('Button 1');
+    form.body('$100');
+    form.button('§c§s§rBack');
+    form.button('Button 1\nTest\nTest\nTest');
     form.button('Button 2');
     form.button('Button 3');
-    form.button('Button 4');
+    form.button('Button 4', 'minecraft:nether_star');
     form.show(player).then(r => {
-        if (r.canceled) return;
+        if (r.canceled) return player.sendMessage(`Closed`);
         player.sendMessage(`${r.selection}`);
     })
 }
