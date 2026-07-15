@@ -47,7 +47,7 @@ function customForm(player) {
     form.body('$100');
     form.button('§c§s§rBack');
     form.button('Button 1\nTest\nTest\nTest');
-    form.button('Button 2');
+    form.button('Button 2', 'textures/blocks/diamond_block');
     form.button('Button 3');
     form.button('Button 4', 'minecraft:nether_star');
     form.show(player).then(r => {

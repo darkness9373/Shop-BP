@@ -71,6 +71,7 @@ class DarknessFormData {
         form.body(this.#bodyText);
         for (const but of this.#button) {
             form.button(but.text, `${but.icon}`);
+            console.warn(but.icon);
         }
         return form.show(player);
     }
