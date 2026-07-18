@@ -3,6 +3,16 @@ import { custom_content, custom_content_keys, number_of_custom_items } from "./c
 import { typeIdToID } from "./typeIdToID";
 import { ActionFormData } from '@minecraft/server-ui';
 
+const fixedMap = new Map();
+let offset = 0;
+for (const [typeId, id] of typeIdToID) {
+    if (typeId === 'minecraft:debug_stick') {
+        offset = 1;
+        continue;
+    }
+    fixedMap.set(typeId, id - offset);
+}
+
 class DarknessFormData {
     #titleText;
     #button;
@@ -37,7 +47,7 @@ class DarknessFormData {
         const targetTexture = custom_content_keys.has(icon)
             ? custom_content[icon]?.texture
             : icon;
-        const ID = typeIdToID.get(targetTexture);
+        const ID = fixedMap.get(targetTexture);
         const aux = ID === undefined ? targetTexture : ((ID + (ID < 256 ? 0 : number_of_custom_items)) * 65536) + (enchanted ? 32768 : 0);
         this.#button.push({
             text: text,
