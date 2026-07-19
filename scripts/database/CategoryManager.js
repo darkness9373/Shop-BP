@@ -58,7 +58,7 @@ export class CategoryManager {
     }
     addCategory(data) {
         if (this.categories.has(data.code)) {
-            throw new Error("Category already exists");
+            return { status: false, message: '§cCategory already exist' }
         }
         data.default = false;
         this.categories.set(data.code, data);

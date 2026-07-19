@@ -11,7 +11,7 @@ export function item(name, id, buy, sell, nameTag, lore, enchant, defaultItem = 
     };
 }
 
-export function category(name, code, icon, subcategory = false, standalone = true, items) {
+export function category(name, code, icon, subcategory = false, standalone = true, items = []) {
     return {
         name,
         code,
