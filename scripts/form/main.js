@@ -5,6 +5,7 @@ import { bodyShow } from "../database/bodyShow";
 import { categoryManager } from "../config/index";
 import { openSubCategory } from "./subcategory";
 import { addCategory } from "./addCategory";
+import { removeCategory } from './removeCategory';
 
 export function mainShop(player) {
     const categories = categoryManager.getAll().filter(x => x.standalone === true);
@@ -25,6 +26,8 @@ export function mainShop(player) {
         if (r.canceled) return;
         if (player.hasTag('admin')) {
             if (r.selection === categories.length) return addCategory(player);
+            if (r.selection === categories.length + 1)
+                return removeCategory(player, mainShop)
         }
         const selected = categories[r.selection];
         if (!selected) return;

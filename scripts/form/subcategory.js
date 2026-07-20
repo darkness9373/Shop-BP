@@ -15,6 +15,13 @@ export function openSubCategory(player, code, back) {
         form.button(item.name, item.icon);
         allSub.push(item.code);
     }
+    if (player.hasTag('admin')) {
+        form.button('Add Sub Category');
+        const ls = subcategory.filter(x => x.default === false);
+        if (ls.length > 0) {
+            form.button('Remove Sub Category')
+        }
+    }
     form.show(player).then(r => {
         if (r.canceled) return;
         if (r.selection === 0) return back(player);

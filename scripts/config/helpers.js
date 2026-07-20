@@ -22,10 +22,11 @@ export function category(name, code, icon, subcategory = false, standalone = tru
     };
 }
 
-export function itemSub(name, code, icon) {
+export function itemSub(name, code, icon, defaultItem = true) {
     return {
         name,
         code,
         icon,
+        default: defaultItem
     };
 }
