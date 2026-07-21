@@ -52,11 +52,12 @@ export function addCategory(player) {
                 true,
             );
             const send = manager.addCategory(data);
-            if (send.status) {
-                player.sendMessage('' + send.message)
+            if (send.status === false) {
+                form.close();
+                return player.sendMessage(send.message)
             }
             form.close();
-            player.sendMessage(`§aAdded §b${CatName.getData()} §ato the category list`)
+            player.sendMessage(send.message)
         } else {
             const data = category(
                 CatName.getData(),
@@ -66,11 +67,12 @@ export function addCategory(player) {
                 true,
             );
             const send = manager.addCategory(data);
-            if (send.status) {
-                player.sendMessage('' + send.message)
+            if (send.status === false) {
+                form.close();
+                return player.sendMessage(send.message)
             }
             form.close();
-            player.sendMessage(`§aAdded §b${CatName.getData()} §ato the category list`);
+            player.sendMessage(send.message);
         }
     });
     form.show();

@@ -5,5 +5,5 @@ import { getCurrency } from "./objective";
 export function bodyShow(player, form) {
     const currency = getCurrency();
     const money = getMoney(player);
-    form.body(`${currency}${Extra.metricNumber(money)}`);
+    form.body(`${currency}${money}`);
 }

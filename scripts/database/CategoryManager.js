@@ -111,7 +111,7 @@ export class CategoryManager {
         data.default = false;
         category.items.push(data);
         this.saveCustom(category);
-        return { status: true, message: `§aItem added to §b${categoryCode}` };
+        return { status: true, message: `§aItem added to :§b${categoryCode}` };
     }
     /**
      * 

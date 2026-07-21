@@ -1,5 +1,5 @@
-import { world } from '@minecraft/server';
-import { checkObjective, getObjectiveMoney } from './objective.js'
+import { world } from "@minecraft/server";
+import { checkObjective, getObjectiveMoney } from "./objective.js";
 
 export function getMoney(player) {
     const obj = getObjectiveMoney();
@@ -8,7 +8,15 @@ export function getMoney(player) {
     try {
         score = world.scoreboard.getObjective(check).getScore(player);
     } catch {
-        player.dimension.runCommand(`scoreboard players set ${player.name} ${check} 0`);
+        player.dimension.runCommand(
+            `scoreboard players set ${player.name} ${check} 0`,
+        );
+        score = world.scoreboard.getObjective(check).getScore(player);
+    }
+    if (score === undefined) {
+        player.dimension.runCommand(
+            `scoreboard players set ${player.name} ${check} 0`,
+        );
         score = world.scoreboard.getObjective(check).getScore(player);
     }
     return score;

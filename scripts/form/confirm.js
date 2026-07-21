@@ -85,7 +85,6 @@ export function confirmItem(player, item, back, frm, code) {
     form.spacer();
     form.textField("Quantity", quantityInput, {
         description: `Amount of the item (1 - ${shopConfig.MAX_ITEM_AMOUNT})`,
-        placeholder: "1",
     });
     form.toggle("Sell / Buy", buysellInput);
     form.button(submitLabel, () => {
@@ -93,7 +92,7 @@ export function confirmItem(player, item, back, frm, code) {
             qtInput: quantityInput,
             outLabel: outputLabel,
             toggleInput: buysellInput,
-            updateDynamic: updateDynamic
+            updateDynamic: updateDynamic,
         };
         confirmRun(player, item, update);
     });
